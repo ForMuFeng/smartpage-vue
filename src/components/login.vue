@@ -1,6 +1,7 @@
 <template>
   <div class="element">
-    <big>登录</big>
+    <big>登录</big><br/>
+    <small> 用户名：root ，密码：root</small>
     <el-input   v-model="username" class="username"></el-input>
     <el-input   type="password" v-model="password" class="password"></el-input>
     <el-button  @click="login" >登录</el-button>
@@ -24,11 +25,24 @@
           param.append('user_password', this.password);
           this.axios.post(this.GLOBAL.url+'/user/login', param)
             .then((response) => {
-
-              console.log(response)
+              if(response.data.name!=null){
+                localStorage.setItem('name',response.data.name);
+                localStorage.setItem('token',response.data.mdf);
+                this.$router.push('/ocr');
+              }else {
+                this.$notify({
+                  title: '登录失败',
+                  message: '用户名或密码错误',
+                  type: 'warning'
+                });
+              }
             })
             .catch(function (error) {
-              console.log(error)
+              this.$notify({
+                title: '登录出错',
+                message: '发生错误！',
+                type: 'error'
+              });
             })
         }
       }
