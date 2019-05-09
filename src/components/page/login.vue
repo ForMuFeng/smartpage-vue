@@ -28,7 +28,7 @@
               if(response.data.name!=null){
                 localStorage.setItem('name',response.data.name);
                 localStorage.setItem('token',response.data.mdf);
-                this.$router.push('/ocr');
+                this.$router.push('/');
               }else {
                 this.$notify({
                   title: '登录失败',

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="main">
     <router-view/>
   </div>
 </template>
@@ -11,12 +11,16 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+ body{
+   width: 100%;
+   height: 100%;
+   margin: 0 auto;
+   text-align: center;
+ }
+  html{
+    height: 100%;
+  }
+  .main{
+    height: 100%;
+  }
 </style>

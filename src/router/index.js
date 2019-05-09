@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import ocr from '@/components/ocr'
-import login from '@/components/login'
+import ocr from '../components/page/ocr'
+import mainPage from '../components/page/mainPage'
+import index from '../components/common/index'
+import login from '../components/page/login'
 
 Vue.use(Router);
 
@@ -10,19 +11,30 @@ Vue.use(Router);
 const router = new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/ocr',
-      name: 'ocr',
-      component: ocr
-    },
-    {
       path: '/login',
       name: 'login',
-      component: login
+      component: login,
+    },
+    {
+      path:'/',
+      redirect: '/mainPage'
+    },
+    {
+      path: '/',
+      name: 'index',
+      component: index,
+      children:[
+        {
+          path:'/mainPage',
+          component: mainPage,
+          name: 'mainPage'
+        },
+        {
+          path: 'ocr',
+          component: ocr,
+          name: 'ocr'
+        }
+      ]
     }
   ]
 })
