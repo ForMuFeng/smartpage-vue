@@ -1,8 +1,11 @@
 <template>
   <div class="aside">
+    <div style="color: #CCCCCC;font-size: 25px">
+      SmartPage
+    </div>
     <div class="sidebar">
-      <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#FFFFFF"
-               text-color="#000000" active-text-color="#20a0ff" unique-opened router>
+      <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#1C2B36"
+               text-color="#869FB1" active-text-color="#20a0ff" unique-opened router>
         <template v-for="item in items">
           <template v-if="item.subs">
             <el-submenu :index="item.index" :key="item.index">
@@ -48,7 +51,13 @@
             {
               icon: 'el-icon-tickets',
               index: 'ocr',
-              title: '文字识别'
+              title: '常用功能',
+              subs: [
+                {
+                  index: 'ocr',
+                  title: '文字识别'
+                },
+              ]
             },
           ]
         }
@@ -68,6 +77,9 @@
   border: 0;
   height: 100vh;
   width: 100%;
+}
+.sidebar{
+  margin-top: 10px;
 }
 .el-menu{
     border: 0px;

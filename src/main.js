@@ -7,13 +7,13 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import global_  from './Global';
 import axios from 'axios';
+import echarts from 'echarts'
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
+Vue.use(echarts);
 Vue.prototype.GLOBAL = global_ ;
 Vue.prototype.axios = axios;
 /* eslint-disable no-new */
-
-
 new Vue({
   el: '#app',
   router,

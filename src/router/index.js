@@ -4,6 +4,7 @@ import ocr from '../components/page/ocr'
 import mainPage from '../components/page/mainPage'
 import index from '../components/common/index'
 import login from '../components/page/login'
+import websocket from　'../components/common/websocket'
 
 Vue.use(Router);
 
@@ -14,6 +15,11 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: login,
+    },
+    {
+      path: '/socket',
+      name: 'socket',
+      component: websocket,
     },
     {
       path:'/',

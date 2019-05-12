@@ -65,10 +65,11 @@
 
 <style scoped>
 .element{
-  margin: auto;
+  margin: 50px auto;
   padding: auto;
   text-align: center;
   width: 500px;
+
 }
 
 

@@ -1,6 +1,7 @@
 <template>
   <div class="element">
     <big>登录</big><br/>
+    <small>登录信息保存在本地，除非更换账号否则不需要再次登录</small>
     <small> 用户名：root ，密码：root</small>
     <el-input   v-model="username" class="username"></el-input>
     <el-input   type="password" v-model="password" class="password"></el-input>

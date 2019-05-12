@@ -45,22 +45,23 @@ export default {
 .index{
   width: 100%;
   height: 100%;
-  background-color: #eeeeee;
+  background-color: white;
 }
   .header{
     background-color: white;
-    box-shadow: 0 0 3px 0 ;
-    font:20px Extra large;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+    font-size:40px;
     height: 100%;
+
+
 
   }
   .aside{
     margin: 0;
     height: 100vh;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 4px 0 black ;
+    background-color: #1C2B36;
   }
 .main{
-
+ padding: 3px 0 0 0;
 }
 </style>
