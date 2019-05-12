@@ -5,8 +5,8 @@
         <left></left>
       </el-aside>
       <el-container>
-        <el-header class="header" height="7%">
-          <div style="padding-top: 10px">SmartPage</div>
+        <el-header class="header" height="10%">
+          <div style="width: 100%;height: 100%"><img src="../../../dist/static/pic/SmartPage.jpg" style="width: 25%;height: 100%"></div>
         </el-header>
         <el-main class="main" width="85%">
           <router-view></router-view>
