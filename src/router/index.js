@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/login') {
     next();
   } else {
-    let token = localStorage.getItem('token');
+    let token = sessionStorage.getItem('admintoken');
     if (token === 'null' || token === '' ||token ===null) {
       next('/login');
     } else {

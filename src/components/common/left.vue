@@ -50,7 +50,7 @@
             },
             {
               icon: 'el-icon-tickets',
-              index: 'ocr',
+              index:'ocr',
               title: '常用功能',
               subs: [
                 {

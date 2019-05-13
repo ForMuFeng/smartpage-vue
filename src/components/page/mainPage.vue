@@ -7,15 +7,15 @@
         {{this.totalView}}
       </div>
       <div  class="card-title">
-           总访客量
+           总访客量(按登录次数计算)
       </div>
     </el-card>
     <el-card class="box-card" shadow="hover"style="margin-left: 30px;float: left;background-color: #23B7E5;color: white" >
       <div class="card-text">
-        {{this.totalUser}}
+        {{this.nowUser}}
       </div>
       <div  class="card-title">
-          总用户数
+          实时用户数(需获取数据)
       </div>
     </el-card>
     <div style="clear: left"></div>
@@ -38,52 +38,42 @@
     </div>
     <!--服务器状态-->
     <div id="myChart" style="float: left;margin-left: 40px">
-      <vstate></vstate>
+      <vstate @getNowNumber="getNumber"></vstate>
     </div>
 
   </div>
 </template>
 
 <script>
+  import {allPv,todayPV} from '../../js/admin'
   import sysState from './state'
     export default {
         name: "mainPage",
       data (){
           return{
-            totalView: '1',
-            totalUser: '1',
-            todayView: '1',
-            appNumber: '2',
+            totalView: '?',
+            nowUser: '?',
+            todayView: '?',
+            appNumber: '1',
             socketdata: ''
           }
       },
       methods:{
-        initWebpack(){//初始化websocket
-          const wsuri = "ws://localhost:2001/websocket/"+localStorage.getItem('token');
-          this.websock = new WebSocket(wsuri);//这里面的this都指向vue
-          this.websock.onopen = this.websocketopen;
-          this.websock.onmessage = this.websocketonmessage;
-          this.websock.onclose = this.websocketclose;
-          this.websock.onerror = this.websocketerror;
-        },
-        websocketopen(){//打开
-          console.log("WebSocket连接成功")
-        },
-        websocketonmessage(e){ //数据接收
-          console.log(e)
-          this.socketdata = JSON.parse(e.data);
-        },
-        websocketclose(){  //关闭
-          console.log("WebSocket关闭");
-        },
-        websocketerror(){  //失败
-          console.log("WebSocket连接失败");
-        },
+        getNumber(number){
+          this.nowUser=number;
+        }
       },
       components:{
           vstate:sysState
+      },
+      created(){
+          allPv() .then((response) =>{
+             this.totalView=response.data
+          });
+          todayPV() .then((response) =>{
+            this.todayView=response.data
+          });
       }
-
     }
 </script>
 
